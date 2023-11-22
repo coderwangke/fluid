@@ -36,6 +36,7 @@ EOF
 $ kubectl apply -f dataset.yaml
 ```
 修改上面的 mountPoint，指向要使用的 cos 存储桶
+
 修改上面的 fuse.nodeSelector
 
 ### 运行Pod，并且使用Fluid PVC
