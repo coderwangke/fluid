@@ -1,0 +1,24 @@
+apiVersion: data.fluid.io/v1alpha1
+kind: ThinRuntimeProfile
+metadata:
+  name: goosefsx
+spec:
+  fileSystemType: goosefsx
+  volumes:
+    - name: mount-point
+      hostPath:
+        path: /goosefsx
+        type: Directory
+  fuse:
+    image: ccr.ccs.tencentyun.com/halewang/goosefsx
+    imageTag: v0.1
+    imagePullPolicy: IfNotPresent
+    env:
+      - name: GOOSEFSX_ID
+        value: <fs-id>
+    volumeMounts:
+      - name: mount-point
+        mountPath: /goosefsx
+        mountPropagation: "Bidirectional"
+    command:
+      - "/usr/local/bin/entrypoint.sh"
