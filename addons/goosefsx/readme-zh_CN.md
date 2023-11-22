@@ -1,4 +1,4 @@
-# NFS
+# GoosefsX
 
 该插件用于 GoosefsX
 
